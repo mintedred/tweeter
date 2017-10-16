@@ -22,6 +22,9 @@ body {
   background-color: #eee;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+main {
+  max-width: 450px;
+  margin: 0 auto;
+  background: white;
+  margin-top: 140px;
+}
