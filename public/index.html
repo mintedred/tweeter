@@ -11,6 +11,7 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -29,11 +30,14 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac pellentesque ipsum. Vivamus vitae nibh tellus. In aliquet ultricies risus. Proin sit amet turpis aliquam massa viverra semper et ut dolor. Aenean et elit porttitor, faucibus augue ac, pulvinar nisl. Phasellus at finibus sem, vitae accumsan nisi. Aliquam eu justo scelerisque, gravida nulla at, rhoncus massa. Sed facilisis, neque sed aliquam eleifend, eros leo blandit dui, tempor ultricies ante diam vitae neque. Sed in mauris sagittis, eleifend metus in, fermentum magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam sit amet quam venenatis, finibus felis nec, hendrerit velit. Sed egestas justo dui, at pellentesque erat luctus a. Nam varius molestie tellus.
-      
-      Sed a dolor id justo tincidunt tempor interdum eu est. Ut fermentum rhoncus elit, at imperdiet sem egestas ut. Duis eget porta elit. Fusce pharetra lacus eu nunc hendrerit, ut malesuada ante consequat. Suspendisse at enim non nunc bibendum lobortis quis a erat. Morbi turpis ante, aliquam id lectus vel, fringilla sodales odio. Nam interdum cursus libero sit amet eleifend. Donec dapibus magna vel velit fermentum faucibus. Vestibulum a augue et odio mollis viverra ut nec ipsum. Phasellus porta tellus at mi sagittis fringilla. Donec tristique tincidunt porttitor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras fermentum laoreet augue hendrerit accumsan.
-      
-      Sed tempor congue pulvinar. Morbi semper ultricies nibh, nec fringilla sem tincidunt vitae. Donec eu rutrum velit. Sed ultricies justo enim, non pellentesque nulla vulputate a. Maecenas rhoncus varius nibh a finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque lorem augue, finibus vitae varius quis, interdum nec erat. Curabitur luctus sollicitudin ligula in bibendum. Maecenas vehicula bibendum tempor. Phasellus ut lorem eget leo ornare vehicula sit amet ut nulla. Mauris malesuada sagittis urna sit amet cursus. Nunc sit amet felis id massa maximus condimentum. Sed vel finibus urna, id posuere risus. Aenean tincidunt euismod nisl quis sodales. Curabitur eu tellus id lectus euismod interdum sit amet non risus.
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form action="/tweets" method="POST">
+          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <input type="submit" value="Tweet">
+          <span class="counter">140</span>
+        </form>
+      </section>
     </main>
 
   </body>

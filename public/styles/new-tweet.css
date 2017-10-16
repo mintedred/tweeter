@@ -1,0 +1,48 @@
+.new-tweet {
+  border-radius: 4px;
+  background: #f7cc82;
+  padding: 1em;
+  width: 95%;
+  margin: 1em auto;
+  color: #c48003;
+  font-weight: 300;  
+}
+
+.new-tweet h2{
+  margin: 0 0 .5em;
+  font-weight: 300;
+}
+
+.new-tweet textarea{
+  width: 100%;
+  padding: .5em;
+  border-radius: 4px;
+  border: rgba(245, 172, 36, 0.75) 2px solid;
+}
+
+.new-tweet textarea::-webkit-input-placeholder {
+  color: #666;
+  font-style: italic;
+}
+
+.new-tweet .counter{
+  float: right;
+  margin: 1em 1px 0 0;
+}
+
+.new-tweet input[type="submit"] {
+  border-radius: 2px;
+  border: 1px solid #e2a636;
+  border-top: 0;
+  border-left: 0;
+  background: #eeb853;
+  padding: .25em .45em;
+  margin: .5em 0 0 1px;
+  color: white;
+  letter-spacing: -.25px;
+  cursor: pointer;
+}
+
+.new-tweet input[type="submit"]:hover {
+  background: #e2a636;
+}

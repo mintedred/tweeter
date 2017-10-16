@@ -23,8 +23,11 @@ body {
 }
 
 main {
-  max-width: 450px;
-  margin: 0 auto;
+  max-width: 600px;
+  height: 600px;
+  margin: 75px auto;
+  padding: 2em;
   background: white;
-  margin-top: 140px;
+  border-radius: 2px;
+  position: relative;
 }
