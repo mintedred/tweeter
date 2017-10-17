@@ -4,4 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-//const $this = $(this);
+$(document).ready(function(){
+  // Display icons when user hovers over a tweet
+  $(".tweet").hover(function(){
+    $(this).find(".actions").toggle();
+  });
+
+
+
+});
