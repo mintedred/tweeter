@@ -17,7 +17,7 @@
   width: 100%;
   padding: .5em;
   border-radius: 4px;
-  border: rgba(245, 172, 36, 0.79) 2px solid;
+  border: rgba(245, 172, 36, 0.8) 2px solid;
   border-bottom: 0;
   border-right: 0
 }
@@ -46,8 +46,11 @@
 }
 
 .new-tweet input[type="submit"]:hover {
-  /**background: #e2a636; **/
   border: 1px solid #e2a636;
   border-bottom: 0;
   border-right: 0
+}
+
+.negative {
+  color: #e71d1d;
 }

@@ -1,0 +1,53 @@
+.tweet {
+  border-radius: 4px;
+  background: white;
+  width: 95%;
+  margin: 2em auto;
+  color: #5b5957;
+  font-weight: 300;  
+  border: #eaeaea 1px solid;
+  font-size: 145%;
+  overflow: hidden;
+  box-shadow: 0 10px 10px -10px #ddd;
+}
+
+.tweet header {
+  background: #eaeaea;
+  overflow: hidden;
+  padding: .75em;
+  height: 95px;
+  
+}
+.tweet img {
+  width: 60px;
+  height: 60px;
+  float: left;
+}
+
+.name {
+  font-weight: 700;
+  float: left;
+  margin: .75em .5em;
+}
+
+.handle {
+  float: right;
+  font-size: 70%;
+  margin-top: 1.25em;
+}
+
+.tweet-body {
+  display: block;
+  padding: .75em;
+}
+
+.tweet footer {
+  background: #eee;
+}
+
+.tweet footer p {
+  margin: 0;
+  font-size: .85rem;
+  border-top: #eaeaea 1px solid;
+  padding: .75em 1em;
+}
