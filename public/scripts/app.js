@@ -87,7 +87,8 @@ $(document).ready(function() {
             $('#tweets-container').prepend(createTweetElement(data[last]));
           }
         })
-        ) 
+        )
+        $(this).parent().trigger('reset'); 
     }
   });
 
