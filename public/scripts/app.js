@@ -89,6 +89,7 @@ $(document).ready(function() {
         })
         )
         $(this).parent().trigger('reset'); 
+        $(this).siblings('.counter').text('140');
     }
   });
 
@@ -113,7 +114,7 @@ $(document).ready(function() {
 
 
   // Display icons when user hovers over a tweet
-  // Attach handler to parent object that does not get loaded dynamically
+  // Attach handler to the parent object that does not get loaded dynamically
   $('#tweets-container').on("mouseover", ".tweet", function(){
     $(this).find(".actions").toggle();
   });
