@@ -21,3 +21,26 @@
   margin: 20px 0 0 10px;
 }
 
+.compose {
+  float: right;
+  border: 2px solid #32a997;
+  border-top: 0;
+  border-left: 0;
+  border-radius: 6px;
+  margin: .5em;
+  padding: .5em;
+  font-size: 76%;
+  color: #555;
+  letter-spacing: -.5px;
+  background: #89dccf; 
+  cursor: pointer;
+}
+.compose:hover {
+  background: #99e1d6;
+}
+
+.compose-click {
+  border: 2px solid #32a997;
+  border-bottom: 0;
+  border-right: 0;
+}

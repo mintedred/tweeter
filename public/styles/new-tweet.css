@@ -6,6 +6,7 @@
   margin: 1em auto;
   color: #c48003;
   font-weight: 300;  
+  display: none;
 }
 
 .new-tweet h2{

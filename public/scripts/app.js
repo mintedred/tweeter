@@ -104,6 +104,12 @@ $(document).ready(function() {
   }
   loadTweets();
 
+// Display Compose Tweet when user hovers over Compose
+$(".compose").click(function(){
+  $(this).toggleClass('compose-click');
+  $(this).parent().next().find(".new-tweet").slideToggle();
+  $(this).parent().next().find(".new-tweet textarea").focus();
+});  
 
   // Display icons when user hovers over a tweet
   $(".tweet").hover(function(){
