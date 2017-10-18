@@ -104,16 +104,25 @@ $(document).ready(function() {
   }
   loadTweets();
 
-// Display Compose Tweet when user hovers over Compose
-$(".compose").click(function(){
-  $(this).toggleClass('compose-click');
-  $(this).parent().next().find(".new-tweet").slideToggle();
-  $(this).parent().next().find(".new-tweet textarea").focus();
-});  
+  // Display Compose Tweet box when user clicks Compose
+  $(".compose").click(function(){
+    $(this).toggleClass('compose-click');
+    $(this).parent().next().find(".new-tweet").slideToggle();
+    $(this).parent().next().find("textarea").focus();
+  });  
+
 
   // Display icons when user hovers over a tweet
-  $(".tweet").hover(function(){
+  // Attach handler to parent object that does not get loaded dynamically
+  $('#tweets-container').on("mouseover", ".tweet", function(){
     $(this).find(".actions").toggle();
   });
+  $('#tweets-container').on("mouseout", ".tweet", function(){
+    $(this).find(".actions").toggle();
+  });
+  // $(".tweet").hover(function(){
+  //   console.log('this');
+  //   $(this).find(".actions").toggle();
+  // });
 
 });
