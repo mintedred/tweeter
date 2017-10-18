@@ -23,10 +23,16 @@ const createTweetElement = function(tweetData) {
   const content = $(ce('p')).addClass('tweet-body').text(tweetData.content.text);
   const footer = $(ce('footer'));
   const date = $(ce('p')).addClass('date').text(timeSince(tweetData.created_at));
+  const actions = $(ce('div')).addClass('actions');
+  const flag = $(ce('img')).attr('src', '/images/flag.png');
+  const like = $(ce('img')).attr('src', '/images/like.png');
+  const retweet = $(ce('img')).attr('src', '/images/retweet.png');
   header.append(userImg).append(name).append(handle);
   tweet.append(header);
   tweet.append(content);
   footer.append(date);
+  actions.append(flag).append(like).append(retweet);
+  footer.append(actions);
   tweet.append(footer);
   return tweet;
 }
@@ -41,11 +47,7 @@ const renderTweets = function(tweets) {
 
 
 $(document).ready(function() {
-  // Display icons when user hovers over a tweet
-  $(".tweet").hover(function(){
-    $(this).find(".actions").toggle();
-  });
-
+  
     // Fake data taken from tweets.json
   var data = [
     {
@@ -95,5 +97,28 @@ $(document).ready(function() {
   ];
   
   renderTweets(data);
+
+
+// Use event handlers to submit form data using Ajax
+  let $button = $('.new-tweet input[type="submit"');
+  $button.on('click', function (e) {
+    e.preventDefault();
+    var submittedTweet = $(this).prev().val();    
+    console.log('Button clicked, performing Ajax call...');
+    $.ajax({
+      type: "POST",
+      data: {"text" : submittedTweet},
+      url: '/tweets',
+      success: function (data) {
+        console.log('Success: ', data );
+      }
+    });
+  });
+
+
+  // Display icons when user hovers over a tweet
+  $(".tweet").hover(function(){
+    $(this).find(".actions").toggle();
+  });
 
 });
