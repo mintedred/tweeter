@@ -3,14 +3,38 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-const timeSince = function(date) {
-  let seconds = Math.floor((new Date() - date) / 1000);
-    let interval = Math.floor(seconds / 31536000);  
-    interval = Math.floor(seconds / 86400);
-    if (interval > 1) {
-      return interval + " days ago";
-    }
+function parseHumanDate(timeCreated) {
+  var created = new Date(timeCreated);
+  var seconds = Math.floor((Date.now() - created) / 1000);
+
+  var interval = Math.floor(seconds / 31536000);
+  if (interval > 1) {
+      return interval + ' years ago';
+  }
+
+  interval = Math.floor(seconds / 2592000);
+  if (interval > 1) {
+      return interval + ' months ago';
+  }
+
+  interval = Math.floor(seconds / 86400);
+  if (interval > 1) {
+      return interval + ' days ago';
+  }
+
+  interval = Math.floor(seconds / 3600);
+  if (interval > 1) {
+      return interval + ' hours ago';
+  }
+
+  interval = Math.floor(seconds / 60);
+  if (interval > 1) {
+      return interval + ' minutes ago';
+  }
+
+  return Math.floor(seconds) + ' seconds ago';
 }
+
 
 // Create an article element from the given tweet object
 const createTweetElement = function(tweetData) {
@@ -22,7 +46,7 @@ const createTweetElement = function(tweetData) {
   const handle = $(ce('p')).addClass('handle').text(tweetData.user.handle);
   const content = $(ce('p')).addClass('tweet-body').text(tweetData.content.text);
   const footer = $(ce('footer'));
-  const date = $(ce('p')).addClass('date').text(timeSince(tweetData.created_at));
+  const date = $(ce('p')).addClass('date').text(parseHumanDate(tweetData.created_at));
   const actions = $(ce('div')).addClass('actions');
   const flag = $(ce('img')).attr('src', '/images/flag.png');
   const like = $(ce('img')).attr('src', '/images/like.png');
