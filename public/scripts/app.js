@@ -52,16 +52,23 @@ $(document).ready(function() {
   let $button = $('.new-tweet input[type="submit"');
   $button.on('click', function (e) {
     e.preventDefault();
-    var submittedTweet = $(this).prev().val();    
-    console.log('Button clicked, performing Ajax call...');
-    $.ajax({
-      type: "POST",
-      data: {"text" : submittedTweet},
-      url: '/tweets',
-      success: function (data) {
-        console.log('Success: ', data );
-      }
-    });
+    const submitTweet = $(this).prev().val(); 
+    
+    if (submitTweet === "" || null) {
+      alert('Please enter a message');
+    } else if (submitTweet.length > 140) {
+      alert('Your tweet is too long!'); 
+    } else {
+      console.log('Button clicked, performing Ajax call...');
+      $.ajax({
+        type: "POST",
+        data: {"text" : submitTweet},
+        url: '/tweets',
+        success: function (data) {
+          console.log('Success: ', data );
+        }
+      });
+    }
   });
 
   //Fetch tweets from the /tweets page
