@@ -4,34 +4,28 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 function parseHumanDate(timeCreated) {
-  var created = new Date(timeCreated);
-  var seconds = Math.floor((Date.now() - created) / 1000);
-
-  var interval = Math.floor(seconds / 31536000);
+  let created = new Date(timeCreated);
+  let seconds = Math.floor((Date.now() - created) / 1000);
+  let interval = Math.floor(seconds / 31536000);
   if (interval > 1) {
       return interval + ' years ago';
   }
-
   interval = Math.floor(seconds / 2592000);
   if (interval > 1) {
       return interval + ' months ago';
   }
-
   interval = Math.floor(seconds / 86400);
   if (interval > 1) {
       return interval + ' days ago';
   }
-
   interval = Math.floor(seconds / 3600);
   if (interval > 1) {
       return interval + ' hours ago';
   }
-
   interval = Math.floor(seconds / 60);
   if (interval > 1) {
       return interval + ' minutes ago';
   }
-
   return Math.floor(seconds) + ' seconds ago';
 }
 
@@ -63,10 +57,9 @@ const createTweetElement = function(tweetData) {
 
 // Loop through array of tweets and append to container
 const renderTweets = function(tweets) {
-  tweets.forEach(function(tweet) {
-    const addTweet = $('#tweets-container').append(createTweetElement(tweet));
-    return addTweet;
-  });
+  for (let i = tweets.length - 1; i >= 0; i--) {
+    $('#tweets-container').append(createTweetElement(tweets[i]));
+  }
 }
 
 
@@ -88,8 +81,8 @@ $(document).ready(function() {
         type: "POST",
         data: {"text" : submitTweet},
         url: '/tweets',
-        success: function (data) {
-          console.log('Success: ', data );
+        success: function(data) {
+          console.log(data);
         }
       });
     }
