@@ -77,14 +77,17 @@ $(document).ready(function() {
       alert('Your tweet is too long!'); 
     } else {
       console.log('Button clicked, performing Ajax call...');
-      $.ajax({
-        type: "POST",
-        data: {"text" : submitTweet},
-        url: '/tweets',
-        success: function(data) {
-          console.log(data);
-        }
-      });
+      $.post('/tweets', {'text': submitTweet})
+       .done(
+        $.ajax({
+          url: '/tweets',
+          method: 'GET',
+          success: function (data) {
+            let last = data.length - 1
+            $('#tweets-container').prepend(createTweetElement(data[last]));
+          }
+        })
+        ) 
     }
   });
 
