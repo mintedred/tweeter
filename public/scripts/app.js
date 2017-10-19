@@ -4,32 +4,35 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 function parseHumanDate(timeCreated) {
-  let created = new Date(timeCreated);
-  let seconds = Math.floor((Date.now() - created) / 1000);
-  let interval = Math.floor(seconds / 31536000);
-  if (interval > 1) {
-      return interval + ' years ago';
+  const created = new Date(timeCreated)
+  const seconds = Math.floor((Date.now() - created) / 1000)
+
+  let secondsArray = [
+      [31536000, ' year'],
+      [2592000, ' month'],
+      [86400, ' day'],
+      [3600, ' hour'],
+      [60, ' minute'],
+      [1, ' second']
+  ]
+
+  function parseHumanDateRecursive(seconds, secondsArray) {
+      if (seconds === 0) return 'Just now'
+
+      let dateWord = ''
+      const head = secondsArray.shift()
+      const interval = Math.floor(seconds / head[0])
+
+      if (interval >= 1) {
+          interval === 1 ? dateWord = head[1] : dateWord = head[1] + 's'
+          return '~ ' + interval + dateWord + ' ago'
+      } else {
+          return parseHumanDateRecursive(seconds, secondsArray)
+      }
   }
-  interval = Math.floor(seconds / 2592000);
-  if (interval > 1) {
-      return interval + ' months ago';
-  }
-  interval = Math.floor(seconds / 86400);
-  if (interval > 1) {
-      return interval + ' days ago';
-  }
-  interval = Math.floor(seconds / 3600);
-  if (interval > 1) {
-      return interval + ' hours ago';
-  }
-  interval = Math.floor(seconds / 60);
-  if (interval > 1) {
-      return interval + ' minutes ago';
-  }
-  return Math.floor(seconds) + ' seconds ago';
+
+  return parseHumanDateRecursive(seconds, secondsArray)
 }
-
-
 // Create an article element from the given tweet object
 const createTweetElement = function(tweetData) {
   const ce = document.createElement.bind(document);
@@ -83,13 +86,12 @@ $(document).ready(function() {
           url: '/tweets',
           method: 'GET',
           success: function (data) {
-            let last = data.length - 1
-            $('#tweets-container').prepend(createTweetElement(data[last]));
+            $('#tweets-container').prepend(createTweetElement(data[data.length - 1]));
           }
         })
-        )
-        $(this).parent().trigger('reset'); 
-        $(this).siblings('.counter').text('140');
+      );
+      $(this).parent().trigger('reset'); 
+      $(this).siblings('.counter').text('140');
     }
   });
 

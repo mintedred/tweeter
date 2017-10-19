@@ -3,10 +3,11 @@
   background: #f7cc82;
   padding: 1em;
   width: 95%;
-  margin: 1em auto;
+  margin: 1em auto 3em;
   color: #c48003;
   font-weight: 300;  
   display: none;
+  box-shadow: 0 10px 10px -10px #ccc;
 }
 
 .new-tweet h2{

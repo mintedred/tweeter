@@ -2,7 +2,7 @@
   border-radius: 5px;
   background: white;
   width: 95%;
-  margin: 2em auto;
+  margin: .75em auto 2em;
   color: #5b5957;
   font-weight: 300;  
   border: #eaeaea 1px solid;
@@ -50,9 +50,10 @@
 .tweet footer p {
   margin: 0;
   font-size: .85rem;
-  border-top: #eaeaea 1px solid;
   padding: .75em 1em;
   float: left;
+  font-style: italic;
+  color: #666;
 }
 
 .actions {
