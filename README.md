@@ -1,17 +1,17 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a simple, responsively-designed single-page Twitter clone.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
+HTML, SASS/CSS, JS, jQuery and AJAX were used for the front-end, and Node, Express and MongoDB were used for the back-end.
 
-## Getting Started
+Tweets are displayed in order from most recent first. When the user clicks on the Compose button, the Compose Tweet box drops down and the textarea is automatically focused. If the tweet is over 140 characters, the counter turns red and an alert pops up when the user tries to submit the tweet. After submission, the Compose Tweet box disappears and the submitted tweet instantly appears as the latest tweet, without a whole page refresh.
 
-1. Fork this repository, then clone your fork of this repository.
-2. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
 
 ## Dependencies
 
 - Express
 - Node 5.10.x or above
+- Body Parser
+- Chance
+- MongoDB
+- Node Sass Middleware
