@@ -1,8 +1,8 @@
 /*
  * Client-side JS logic goes here
  * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
 function parseHumanDate(timeCreated) {
   const created = new Date(timeCreated)
   const seconds = Math.floor((Date.now() - created) / 1000)
@@ -33,6 +33,7 @@ function parseHumanDate(timeCreated) {
 
   return parseHumanDateRecursive(seconds, secondsArray)
 }
+
 // Create an article element from the given tweet object
 const createTweetElement = function(tweetData) {
   const ce = document.createElement.bind(document);
@@ -108,12 +109,11 @@ $(document).ready(function() {
   loadTweets();
 
   // Display Compose Tweet box when user clicks Compose
-  $(".compose").click(function(){
+  $('.compose').click(function(){
     $(this).toggleClass('compose-click');
-    $(this).parent().next().find(".new-tweet").slideToggle();
-    $(this).parent().next().find("textarea").focus();
+    $(this).closest('#nav-bar').siblings('.container').children('.new-tweet').slideToggle();
+    $(this).closest('#nav-bar').siblings('.container').children('.new-tweet').find('textarea').focus();
   });  
-
 
   // Display icons when user hovers over a tweet
   // Attach handler to the parent object that does not get loaded dynamically
@@ -123,9 +123,4 @@ $(document).ready(function() {
   $('#tweets-container').on("mouseout", ".tweet", function(){
     $(this).find(".actions").toggle();
   });
-  // $(".tweet").hover(function(){
-  //   console.log('this');
-  //   $(this).find(".actions").toggle();
-  // });
-
 });
