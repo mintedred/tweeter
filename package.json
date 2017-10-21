@@ -10,7 +10,6 @@
     "compile-sass": "./node_modules/node-sass/bin/node-sass --watch --recursive --output public/css stylesheets"
   },
   "author": "Corina Wong",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
     "chance": "^1.0.2",
